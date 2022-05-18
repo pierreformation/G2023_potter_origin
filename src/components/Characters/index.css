@@ -1,0 +1,29 @@
+
+
+.CharactersContainer {
+    background-color: #252633;
+}
+
+.card {
+    height: 400px;
+    width: 400px;
+    background-color: aqua;
+    border : 3px red solid;
+    position: relative;
+
+
+}
+
+.card > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.legend {
+    position: absolute;
+    background-color: white;
+    top:200px;
+    left:200px
+}
