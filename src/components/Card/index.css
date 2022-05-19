@@ -2,8 +2,8 @@
 .card {
     height: 400px;
     width: 400px;
-    background-color: aqua;
-    border : 3px red solid;
+    background-color: #252633;
+    border : 1px red solid;
     position: relative;
     flex-shrink: 0;
     flex-grow: 0;

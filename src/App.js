@@ -8,26 +8,33 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [data, setData] = useState(null);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
         "http://hp-api.herokuapp.com/api/characters"
       );
-      console.log("response.data", response.data);
-
-      const modifiedData = response.data.splice(0, 10);
-
+      const modifiedData = response.data.splice(0, 100).filter((el) => {
+        return el.name.includes(search);
+      });
       setData(modifiedData);
     };
 
-    // fetchData();
-  }, []);
+    fetchData();
+  }, [search]);
 
   return (
     <div className="App">
       <Header />
       <Hero />
+      <input
+        type="text"
+        value={search}
+        onChange={(event) => {
+          setSearch(event.target.value);
+        }}
+      />
       {data !== null ? <Characters data={data} /> : null}
     </div>
   );
