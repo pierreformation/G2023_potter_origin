@@ -1,20 +1,14 @@
 import "./index.css";
+import Card from "../Card";
 
-const Characters = () => {
+const Characters = (props) => {
+  // le tableau de data est props.data
+
   return (
     <div className="CharactersContainer">
-      <div className="card">
-        <img src="https://images.rtl.fr/~c/770v513/rtl/www/1200629-le-jeune-daniel-radcliffe-dans-harry-potter-a-l-ecole-des-sorciers.jpg" />
-        <div className="legend"> Harry </div>
-      </div>
-      <div className="card">
-        <img src="https://images.rtl.fr/~c/770v513/rtl/www/1200629-le-jeune-daniel-radcliffe-dans-harry-potter-a-l-ecole-des-sorciers.jpg" />
-        <div className="legend"> Harry </div>
-      </div>
-      <div className="card">
-        <img src="https://images.rtl.fr/~c/770v513/rtl/www/1200629-le-jeune-daniel-radcliffe-dans-harry-potter-a-l-ecole-des-sorciers.jpg" />
-        <div className="legend"> Harry </div>
-      </div>
+      {props.data.map((character) => {
+        return <Card name={character.name} imageUrl={character.url} />;
+      })}
     </div>
   );
 };

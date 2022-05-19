@@ -2,6 +2,10 @@
 
 .CharactersContainer {
     background-color: #252633;
+    display: flex;
+    flex-wrap: wrap;
+    /* overflow: scroll; */
+
 }
 
 .card {
@@ -10,8 +14,8 @@
     background-color: aqua;
     border : 3px red solid;
     position: relative;
-
-
+    flex-shrink: 0;
+    flex-grow: 0;
 }
 
 .card > img {
@@ -23,7 +27,12 @@
 
 .legend {
     position: absolute;
-    background-color: white;
-    top:200px;
-    left:200px
+    color: white;
+    background-color: #252633;
+    padding: 20px;
+    font-size: 20px;
+    bottom:70px;
+    left:0;
+    /* transform: translateX(-50%); */
 }
+
