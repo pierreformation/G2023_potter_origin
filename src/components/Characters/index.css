@@ -7,32 +7,3 @@
     /* overflow: scroll; */
 
 }
-
-.card {
-    height: 400px;
-    width: 400px;
-    background-color: aqua;
-    border : 3px red solid;
-    position: relative;
-    flex-shrink: 0;
-    flex-grow: 0;
-}
-
-.card > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.legend {
-    position: absolute;
-    color: white;
-    background-color: #252633;
-    padding: 20px;
-    font-size: 20px;
-    bottom:70px;
-    left:0;
-    /* transform: translateX(-50%); */
-}
-
