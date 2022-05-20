@@ -7,7 +7,7 @@ const Characters = (props) => {
   return (
     <div className="CharactersContainer">
       {props.data.map((character) => {
-        return <Card name={character.name} imageUrl={character.image} />;
+        return <Card character={character} />;
       })}
     </div>
   );
