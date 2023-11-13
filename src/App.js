@@ -13,7 +13,8 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "https://hp-api.herokuapp.com/api/characters"
+       "https://hp-api.onrender.com/api/characters"
+        // "https://hp-api.herokuapp.com/api/characters"
       );
       const modifiedData = response.data.splice(0, 100).filter((el) => {
         return el.name.includes(search);
