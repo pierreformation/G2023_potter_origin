@@ -1,43 +1,57 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Characters from "./components/Characters";
-import axios from "axios";
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
+import {
+  BrowserRouter,
+  Route,Routes
+} from "react-router-dom";
+import Gryffindor from "./containers/gryffindor";
+import Slytherin from "./containers/Slytherin";
+import Ravenclaw from "./containers/Ravenclaw";
+import Hufflepuff from "./containers/Hufflepuff";
 function App() {
   const [data, setData] = useState(null);
-  const [search, setSearch] = useState("");
+  
+  
+  // const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-       "https://hp-api.onrender.com/api/characters"
-        // "https://hp-api.herokuapp.com/api/characters"
-      );
-      const modifiedData = response.data.splice(0, 100).filter((el) => {
-        return el.name.includes(search);
-      });
-      setData(modifiedData);
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await axios.get(
+  //      "https://hp-api.onrender.com/api/characters/house/gryffindor"
+  //     );
+  //     const modifiedData = response.data.splice(0, 10).filter((el) => {
+  //       return el.name.includes(search);
+  //     });
+  //     setData(modifiedData);
+  //   };
 
-    fetchData();
-  }, [search]);
+  //   fetchData();
+  // }, [search]);
 
   return (
-    <div className="App">
-      <Header />
-      <Hero />
-      <input
-        type="text"
-        value={search}
-        onChange={(event) => {
-          setSearch(event.target.value);
-        }}
-      />
-      {data !== null ? <Characters data={data} /> : null}
-    </div>
+    <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Hero />
+          <Routes>
+            <Route path="/" element={<div>test</div>}/>
+            <Route path="/gryffindor" element={<Gryffindor/>}/>
+            <Route path="/ravenclaw" element={<Ravenclaw/>}/>
+            <Route path="/slytherin" element={<Slytherin/>}/>
+            <Route path="/hufflepuff" element={<Hufflepuff/>}/>
+          </Routes>
+          {/* <input
+            type="text"
+            value={search}
+            onChange={(event) => {
+              setSearch(event.target.value);
+            }}
+          /> */}
+          {/* Slytherin Gryffindor Hufflepuff Ravenclaw */}
+        </div>
+      </BrowserRouter>
   );
 }
 
